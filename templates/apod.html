@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> APOD (Astronomy Picture Of the Day) </title>
+  </head>
+  <body>
+    {% if data.get("error") %}
+      <h1>{{ data.get("message") }}!</h1>
+    {% else %}
+      <img src="{{ data.get('url') }}" alt="">
+      <p>Title: {{ data.get("title") }}</p>
+      <p>Explanation: {{ data.get("explanation") }}</p>
+      <p>Date: {{ data.get("date") }}</p>
+      <p>Copyright: {{ data.get("copyright") }}</p>
+      <p>You can see this image in high definition <a href="{{ data.get("hdurl") }}">here</a></p>.
+
+    {% endif %}
+
+
+  </body>
+</html>
