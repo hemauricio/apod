@@ -33,28 +33,32 @@
     {% else %}
 
     <div class="row valign-wrapper">
+      <div class="col s12">
 
-      <div class="col s6">
-        <img src="{{ data.get('url') }}" alt="">
+        <!-- Image -->
+        <div class="col s6">
+          <img src="{{ data.get('url') }}" alt="">
+        </div>
+
+        <!-- Credits / Explanation -->
+        <div class="col s6" style="font-family: Nunito, sans-serif;">
+
+          <p><b>Title:</b> {{ data.get("title") }}</p>
+
+          <p><b>Explanation:</b> {{ data.get("explanation") }}</p>
+
+          <p><b>Date:</b> {{ data.get("date") }}</p>
+
+          <p><b>Copyright:</b> {{ data.get("copyright") }}</p>
+
+          <p>You can see this image in high definition
+            <a href="{{ data.get("hdurl") }}" target="_blank">
+              <b>here</b>
+            </a>.
+          </p>
+        </div>
+
       </div>
-
-      <div class="col s6" style="font-family: Nunito, sans-serif;">
-
-        <p><b>Title:</b> {{ data.get("title") }}</p>
-
-        <p><b>Explanation:</b> {{ data.get("explanation") }}</p>
-
-        <p><b>Date:</b> {{ data.get("date") }}</p>
-
-        <p><b>Copyright:</b> {{ data.get("copyright") }}</p>
-
-        <p>You can see this image in high definition
-          <a href="{{ data.get("hdurl") }}" target="_blank">
-            <b>here</b>
-          </a>.
-        </p>
-      </div>
-
     </div>
 
     {% endif %}
@@ -62,6 +66,6 @@
   </body>
 
   <footer>
-    <p class="center-align">Created by <a href="https://github.com/hemauricio">hemauricio</a></p>
+    <p class="center-align">Created by <a href="https://github.com/hemauricio" target="_blank">hemauricio</a></p>
   </footer>
 </html>
