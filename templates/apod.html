@@ -1,22 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+
     <meta charset="utf-8">
     <title> APOD (Astronomy Picture Of the Day) </title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
   </head>
-  <body>
+
+  <header style="font-family: Nunito, sans-serif;">
+    <h2 class="center-align"> Get the Astronomy Picture Of the Day </h2>
+  </header>
+
+  <hr style="width: 50%; margin: 0 auto">
+
+  <br>
+  <br>
+
+  <body style="">
+
     {% if data.get("error") %}
       <h1>{{ data.get("message") }}!</h1>
+
     {% else %}
-      <img src="{{ data.get('url') }}" alt="">
-      <p>Title: {{ data.get("title") }}</p>
-      <p>Explanation: {{ data.get("explanation") }}</p>
-      <p>Date: {{ data.get("date") }}</p>
-      <p>Copyright: {{ data.get("copyright") }}</p>
-      <p>You can see this image in high definition <a href="{{ data.get("hdurl") }}">here</a></p>.
+
+    <div class="row valign-wrapper">
+
+      <div class="col s6">
+        <img src="{{ data.get('url') }}" alt="">
+      </div>
+
+      <div class="col s6" style="font-family: Nunito, sans-serif;">
+
+        <p><b>Title:</b> {{ data.get("title") }}</p>
+
+        <p><b>Explanation:</b> {{ data.get("explanation") }}</p>
+
+        <p><b>Date:</b> {{ data.get("date") }}</p>
+
+        <p><b>Copyright:</b> {{ data.get("copyright") }}</p>
+
+        <p>You can see this image in high definition
+          <a href="{{ data.get("hdurl") }}" target="_blank">
+            <b>here</b>
+          </a>.
+        </p>
+      </div>
+
+    </div>
 
     {% endif %}
 
-
   </body>
+
+  <footer>
+    <p class="center-align">Created by <a href="https://github.com/hemauricio">hemauricio</a></p>
+  </footer>
 </html>
