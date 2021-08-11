@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <title> APOD (Astronomy Picture Of the Day) </title>
-
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
 
@@ -32,34 +32,32 @@
 
     {% else %}
 
-    <div class="row valign-wrapper">
-      <div class="col s12">
-
+      <div class="container">
+	<div class="row">
         <!-- Image -->
-        <div class="col s6">
-          <img src="{{ data.get('url') }}" alt="">
+          <div class="col s6">
+            <img src="{{ data.get('url') }}" class="responsive-img" alt="">
+          </div>
+
+          <!-- Credits / Explanation -->
+          <div class="col s6" style="font-family: Nunito, sans-serif;">
+
+            <p><b>Title:</b> {{ data.get("title") }}</p>
+
+            <p><b>Explanation:</b> {{ data.get("explanation") }}</p>
+
+            <p><b>Date:</b> {{ data.get("date") }}</p>
+
+            <p><b>Copyright:</b> {{ data.get("copyright") }}</p>
+
+            <p>You can see this image in high definition
+              <a href="{{ data.get("hdurl") }}" target="_blank">
+                <b>here</b>
+              </a>.
+            </p>
+          </div>
         </div>
-
-        <!-- Credits / Explanation -->
-        <div class="col s6" style="font-family: Nunito, sans-serif;">
-
-          <p><b>Title:</b> {{ data.get("title") }}</p>
-
-          <p><b>Explanation:</b> {{ data.get("explanation") }}</p>
-
-          <p><b>Date:</b> {{ data.get("date") }}</p>
-
-          <p><b>Copyright:</b> {{ data.get("copyright") }}</p>
-
-          <p>You can see this image in high definition
-            <a href="{{ data.get("hdurl") }}" target="_blank">
-              <b>here</b>
-            </a>.
-          </p>
-        </div>
-
       </div>
-    </div>
 
     {% endif %}
 
